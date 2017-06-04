@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://unpkg.com/tachyons@4.7.0/css/tachyons.min.css"/>
   </head>
   <body class="sans-serif mw7 center near-black ph3">
-    <h1 class="f-headline lh-solid nl1 mv5">Hello.</h1>
+    <h1 class="f-headline lh-solid nl1 mv5">Hello<span class="pointer" onclick="lightSwitch();">.</span></h1>
     <p class="f4 f3-ns lh-copy">
       Amin Al Hazwani is a Designer at Firefox. Based in Berlin, Germany he is currently working on <a class="near-black" href="http://design.firefox.com/photon">Photon Design System</a>. 
     </p>
@@ -29,5 +29,23 @@
       ga('create','UA-71074902-1','auto');ga('send','pageview')
     </script>
     <script src="https://www.google-analytics.com/analytics.js" async defer></script>
+    <script>
+      function lightSwitch() {
+        var body = document.getElementsByTagName("body")[0];
+        var nearBlackElems = document.querySelectorAll(".near-black");
+        var whiteElems = document.querySelectorAll(".white");
+        body.classList.toggle("bg-near-black");
+        if (body.classList.contains("bg-near-black")) {
+          [].forEach.call(nearBlackElems, function(el) {
+            el.className = el.className.replace(/\bnear-black\b/, "white");
+          });
+        }
+        else {
+          [].forEach.call(whiteElems, function(el) {
+            el.className = el.className.replace(/\bwhite\b/, "near-black");
+          });
+        }
+      }
+    </script>
   </body>
 </html>
